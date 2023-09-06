@@ -1,0 +1,48 @@
+package Mathfirst;
+import java.util.*;
+public class Karpekar {
+
+	static int Num(int n) {
+		int c=0;
+		if(n==0) {
+			c=0;
+		}
+		for(int i=n;i!=0;i=i/10) {
+			c++;
+		}
+		return c;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner ip=new Scanner(System.in);
+		int n=Integer.parseInt(ip.nextLine());
+		int digits=Num(n);
+		int square=n*n;
+		int a=square % (int)Math.pow(10, digits);
+		int b=square / (int)Math.pow(10, digits);
+		int sum=a+b;
+		int flag=0;
+		if(sum==n) {
+			flag=1;
+		}else {
+			flag=0;
+		}
+		int count=0;
+		int A[]=new int[n];
+		int k=0;
+		for(int i=0;i<Math.pow(10,n);i++) {
+			if(flag==1) {
+				count=count+1;
+				A[k++]=i;
+			}
+			if(count==n) {
+				break;
+			}
+		}
+		for(int i=0;i<n;i++) {
+			System.out.println(A[i]+" ");
+		}
+
+	}
+
+}
